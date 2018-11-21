@@ -5644,6 +5644,8 @@ var elesfn = {
     while (Q.size() > 0) {
       var u = Q.pop();
       var smalletsDist = getDist(u);
+      console.log("======");
+        console.log(smalletsDist);
       var uid = u.id();
         
       
@@ -5658,8 +5660,13 @@ var elesfn = {
              for (var i = 0; i < n.length; i++) {
                  if (Snames.indexOf(n[i].id()) > -1)
                  {
-                     var dis1 = distBetween(n[i], u).dist;
-                     var dis2 = distBetween(u, n[i]).dist;
+                     var add1 = (distBetween(source, n[i]).dist == Infinity) ? 0 : distBetween(source, n[i]).dist;
+                     var add2 = (distBetween(source, u).dist == Infinity) ? 0 : distBetween(source, u).dist;
+                     
+                     var dis1 = distBetween(n[i], u).dist + add1;
+                     var dis2 = distBetween(u, n[i]).dist + add2;
+                     console.log(dis1);
+                     console.log(dis2);
                      if (dis1 == smalletsDist) {
                             var dis = distBetween(n[i], u);
                             if (potential_edges.length == 1) {
