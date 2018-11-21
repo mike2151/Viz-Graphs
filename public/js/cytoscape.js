@@ -5644,8 +5644,6 @@ var elesfn = {
     while (Q.size() > 0) {
       var u = Q.pop();
       var smalletsDist = getDist(u);
-      console.log("======");
-        console.log(smalletsDist);
       var uid = u.id();
         
       
